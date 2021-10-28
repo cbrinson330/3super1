@@ -8,21 +8,21 @@
         -> Publish "roomImage" every "x" cycles publish room image for consumption
         -> "roomImage" passes string of location of latest file
 
-#Determine Path
+# Determine Path
     -> Subscribes to "warning", "roomImage"
     -> Determines path to take
     -> https://github.com/The-Assembly/Obstacle_avoidance_opencv
     -> Outputs speed and direction of wheel turning
 
-#Check Room
+# Check Room
     -> Subscribes to "roomImage"
     -> Publiches to "roomIdentified" current room "String"
     -> processes image to determine current room
 
-#Log Environmentals
+# Log Environmentals
     -> Subscribes to "roomIdentified"
     -> takes sensor readings and logs them
 
-#Lights
+# Lights
     -> Subscribes to "roomIdentified", "warning", "move"
     -> outputs lights blinking etc.
