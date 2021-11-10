@@ -4,6 +4,7 @@
 # Main Loop
     check sensor to see if we are too close
         -> Publish "warning" stop override message
+        -> https://thepihut.com/blogs/raspberry-pi-tutorials/hc-sr04-ultrasonic-range-sensor-on-the-raspberry-pi
     check camera image
         -> Publish "roomImage" every "x" cycles publish room image for consumption
         -> "roomImage" passes string of location of latest file
