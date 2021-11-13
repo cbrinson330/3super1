@@ -1,5 +1,9 @@
-from typing import _get_type_hints_obj_allowed_types
+from sensors import range
 
 if __name__ == "__main__":
+    """ init range sensor """
+    rangeObj = range.range()
+
     while True:
-        # Check for ultrasonic sensor
+        """ Check for ultrasonic sensor """
+        rangeObj.takeReading()
