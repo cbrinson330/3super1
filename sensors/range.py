@@ -3,8 +3,8 @@ from pubsub import pub
 
 class range:
     def __init__(self):
-        """ TODO setup here """
         print("init range")
+        pub.subscribe(self._requestHandler, 'rangeRequest')
     
     def _determineSpeedOfSound(self):
         """ 
@@ -12,7 +12,10 @@ class range:
             to better calibrate range sensor
         """
 
+    def _requestHandler(self, rangeRequest=True):
+        if(rangeRequest):
+            self.takeReading()
+
     def takeReading(self):
-        """ TODO get curent sensor reading """
         print("Take range reading")
-        pub.sendMessage('curRangeFront', 15)
+        pub.sendMessage('curRangeFront', curRangeFront=20)

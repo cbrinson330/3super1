@@ -36,3 +36,4 @@
 # Topics
     pub.sendMessage('rootTopic', arg1=123, arg2=anObj)
     -> curRangeFront = number indicating cm to nearest object
+    -> requestRange = Bool rangeRequest=True Request range snesor to make new reading
