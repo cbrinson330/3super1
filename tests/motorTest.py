@@ -1,6 +1,10 @@
-from ..drive import motorControl
 from pubsub import pub
 from time import time
+import sys
+
+# append the path of the parent directory
+sys.path.append("..")
+from ..drive import motorControl
 
 class motorTest:
     def __init__(self):

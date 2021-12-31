@@ -1,4 +1,3 @@
-from config import config
 from pubsub import pub
 import RPi.GPIO as GPIO          
 from time import sleep
