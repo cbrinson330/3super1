@@ -1,25 +1,26 @@
 from drive import motorControl 
 from pubsub import pub
-from time import time
+import time
 import sys
-
-# append the path of the parent directory
-sys.path.append("..")
-from ..drive import motorControl
 
 class motorTest:
     def __init__(self):
         self.runTests()
 
     def runTests(self):
+        print('running motor tests')
+        print('running motor left test')
         pub.sendMessage('moveDirection', moveDirection='left')
-        time.delay(3000)
+        time.sleep(3)
+        print('running motor right test')
         pub.sendMessage('moveDirection', moveDirection='right')
-        time.delay(3000)
+        time.sleep(3)
+        print('running motor forward test')
         pub.sendMessage('moveDirection', moveDirection='forwards')
-        time.delay(3000)
+        time.sleep(3)
+        print('running motor reverse test')
         pub.sendMessage('moveDirection', moveDirection='reverse')
-        time.delay(3000)
+        print('ending motor tests')
 
 if __name__ == "__main__":
     motorControl = motorControl.motorControl()

@@ -16,7 +16,7 @@ class motorControl:
         self.enL = 25
         GPIO.setup(self.in1,GPIO.OUT)
         GPIO.setup(self.in2,GPIO.OUT)
-        GPIO.setup(self.en,GPIO.OUT)
+        GPIO.setup(self.enL,GPIO.OUT)
         GPIO.output(self.in1,GPIO.LOW)
         GPIO.output(self.in2,GPIO.LOW)
         self.pL=GPIO.PWM(self.enL,1000)
@@ -27,7 +27,7 @@ class motorControl:
         self.enR = 22
         GPIO.setup(self.in3,GPIO.OUT)
         GPIO.setup(self.in4,GPIO.OUT)
-        GPIO.setup(self.en,GPIO.OUT)
+        GPIO.setup(self.enR,GPIO.OUT)
         GPIO.output(self.in3,GPIO.LOW)
         GPIO.output(self.in4,GPIO.LOW)
         self.pR=GPIO.PWM(self.enR,1000)
