@@ -46,12 +46,12 @@ class motorControl:
         print("Move Forward")
         # Left wheel
         pL=GPIO.PWM(self.enL,1000)
-        pL.start(25)
+        pL.start(50)
         GPIO.output(self.in1,GPIO.HIGH)
         GPIO.output(self.in2,GPIO.LOW)
         # Right Wheel
         pR=GPIO.PWM(self.enR,1000)
-        pR.start(25)
+        pR.start(50)
         GPIO.output(self.in3,GPIO.HIGH)
         GPIO.output(self.in4,GPIO.LOW)
         time.sleep(self.moveTime)
@@ -60,12 +60,12 @@ class motorControl:
         print("Move backwards")
         # Left wheel
         pL=GPIO.PWM(self.enL,1000)
-        pL.start(25)
+        pL.start(50)
         GPIO.output(self.in1,GPIO.LOW)
         GPIO.output(self.in2,GPIO.HIGH)
         # Right Wheel
         pR=GPIO.PWM(self.enR,1000)
-        pR.start(25)
+        pR.start(50)
         GPIO.output(self.in3,GPIO.LOW)
         GPIO.output(self.in4,GPIO.HIGH)
         time.sleep(self.moveTime)
@@ -74,12 +74,12 @@ class motorControl:
         print("Move left")
         # Left wheel
         pL=GPIO.PWM(self.enL,1000)
-        pL.start(25)
+        pL.start(50)
         GPIO.output(self.in1,GPIO.HIGH)
         GPIO.output(self.in2,GPIO.LOW)
         # Right Wheel
         pR=GPIO.PWM(self.enR,1000)
-        pR.start(25)
+        pR.start(50)
         GPIO.output(self.in3,GPIO.LOW)
         GPIO.output(self.in4,GPIO.HIGH)
         # Time to perform left turn
@@ -89,12 +89,12 @@ class motorControl:
         print("Move left")
         # Left wheel
         pL=GPIO.PWM(self.enL,1000)
-        pL.start(25)
+        pL.start(50)
         GPIO.output(self.in1,GPIO.LOW)
         GPIO.output(self.in2,GPIO.HIGH)
         # Right Wheel
         pR=GPIO.PWM(self.enR,1000)
-        pR.start(25)
+        pR.start(50)
         GPIO.output(self.in3,GPIO.HIGH)
         GPIO.output(self.in4,GPIO.LOW)
         # Time to perform left turn
