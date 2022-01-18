@@ -7,21 +7,22 @@ class motorControl:
         """ TODO setup here """
         print("init motor control")
         pub.subscribe(self._listener, 'moveDirection')
-
         GPIO.setmode(GPIO.BCM)
+
+        self.turnTime = 3
+        self.moveTime = 1
 
         # Left Motor 
         self.in1 = 24
         self.in2 = 23
-        self.en = 25
+        self.enL = 25
         GPIO.setup(self.in1,GPIO.OUT)
         GPIO.setup(self.in2,GPIO.OUT)
-        GPIO.setup(self.en,GPIO.OUT)
+        GPIO.setup(self.enL,GPIO.OUT)
         GPIO.output(self.in1,GPIO.LOW)
         GPIO.output(self.in2,GPIO.LOW)
 
         # Right Motor
-        """
         self.in3 = 17 
         self.in4 = 27
         self.enR = 22
@@ -30,13 +31,8 @@ class motorControl:
         GPIO.setup(self.enR,GPIO.OUT)
         GPIO.output(self.in3,GPIO.LOW)
         GPIO.output(self.in4,GPIO.LOW)
-        pR=GPIO.PWM(self.enR,1000)
-        pR.start(25)
-        """
 
     def _listener(self, moveDirection=""):
-        self._left()
-        """ 
         if moveDirection == "forward":
             self._forward()
         elif moveDirection == "reverse":
@@ -45,48 +41,61 @@ class motorControl:
             self._left()
         elif moveDirection == "right":
             self._right()
-        """
-    """
+
     def _forward(self):
         print("Move Forward")
         # Left wheel
+        pL=GPIO.PWM(self.enL,1000)
+        pL.start(25)
         GPIO.output(self.in1,GPIO.HIGH)
         GPIO.output(self.in2,GPIO.LOW)
         # Right Wheel
+        pR=GPIO.PWM(self.enR,1000)
+        pR.start(25)
         GPIO.output(self.in3,GPIO.HIGH)
         GPIO.output(self.in4,GPIO.LOW)
+        time.sleep(self.moveTime)
 
     def _reverse(self):
         print("Move backwards")
         # Left wheel
+        pL=GPIO.PWM(self.enL,1000)
+        pL.start(25)
         GPIO.output(self.in1,GPIO.LOW)
         GPIO.output(self.in2,GPIO.HIGH)
-        self.pL.start(25) #25=low 50=medium 75=high
         # Right Wheel
+        pR=GPIO.PWM(self.enR,1000)
+        pR.start(25)
         GPIO.output(self.in3,GPIO.LOW)
         GPIO.output(self.in4,GPIO.HIGH)
-        self.pR.start(25) #25=low 50=medium 75=high
-    """
+        time.sleep(self.moveTime)
+
     def _left(self):
         print("Move left")
         # Left wheel
-        p=GPIO.PWM(self.en,1000)
-        p.start(25)
+        pL=GPIO.PWM(self.enL,1000)
+        pL.start(25)
         GPIO.output(self.in1,GPIO.HIGH)
         GPIO.output(self.in2,GPIO.LOW)
-        time.sleep(3)
         # Right Wheel
-        # GPIO.output(self.in3,GPIO.LOW)
-        # GPIO.output(self.in4,GPIO.HIGH)
-    """
+        pR=GPIO.PWM(self.enR,1000)
+        pR.start(25)
+        GPIO.output(self.in3,GPIO.LOW)
+        GPIO.output(self.in4,GPIO.HIGH)
+        # Time to perform left turn
+        time.sleep(self.turnTime)
+
     def _right(self):
-        print("Move right")
+        print("Move left")
         # Left wheel
+        pL=GPIO.PWM(self.enL,1000)
+        pL.start(25)
         GPIO.output(self.in1,GPIO.LOW)
         GPIO.output(self.in2,GPIO.HIGH)
-        self.pL.start(25) #25=low 50=medium 75=high
         # Right Wheel
+        pR=GPIO.PWM(self.enR,1000)
+        pR.start(25)
         GPIO.output(self.in3,GPIO.HIGH)
         GPIO.output(self.in4,GPIO.LOW)
-        self.pR.start(25) #25=low 50=medium 75=high
-    """
+        # Time to perform left turn
+        time.sleep(self.turnTime)
